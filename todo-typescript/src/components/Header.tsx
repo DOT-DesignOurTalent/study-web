@@ -1,5 +1,13 @@
 import React from "react";
 
-export default function Header() {
-  return <div>Header</div>;
+interface HeaderProps {
+  title?: string;
+}
+
+export default function Header({ title = "할 일 목록" }: HeaderProps) {
+  return (
+    <header>
+      <h1>{title}</h1>
+    </header>
+  );
 }

@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { v4 as uuid } from "uuid";
+import { Todo } from "../App";
 
-export default function TodoInput() {
-  const todoObj = {
-    id: uuid(),
-    description: "",
-    isDone: false,
-  };
+interface TodoInputProps {
+  addTodo: any;
+}
+
+export default function TodoInput({ addTodo }: TodoInputProps) {
+  const todoObj: Todo = new Todo();
 
   const [todo, setTodo] = useState(todoObj);
 
   function submitTodo(event: any) {
     event.preventDefault();
     console.log("todo: ", todo);
+    addTodo(todo);
     setTodo(todoObj);
   }
 
